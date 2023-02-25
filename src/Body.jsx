@@ -5,11 +5,10 @@ import data from "./data";
 
 export default function Body(props) {
     // JSON.parse(localStorage.getItem("detailData"))
-    const parsedData = JSON.parse(localStorage.getItem("detailData"));
 
-    const [movieData, setMovieData] = React.useState(parsedData);
+    let parsedData = props.detailData;
 
-    const cardEl = movieData.map((item) => {
+    const cardEl = parsedData.map((item) => {
         return (
             <Card
                 key={item.imdbID}
@@ -25,6 +24,10 @@ export default function Body(props) {
         );
     });
 
+    console.log("body render");
+    console.log(parsedData);
+    console.log(cardEl);
+
     function handleAdd() {
         console.log(JSON.parse(localStorage.getItem("detailData"))[0]);
     }
@@ -32,7 +35,11 @@ export default function Body(props) {
     return (
         <div className="body-container">
             {/* <EmptyIcon /> */}
-            <div className="card-container">{cardEl}</div>
+            {cardEl.length > 0 ? (
+                <div className="card-container">{cardEl}</div>
+            ) : (
+                <EmptyIcon />
+            )}
         </div>
     );
 }
