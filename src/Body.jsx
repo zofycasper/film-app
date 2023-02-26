@@ -24,9 +24,9 @@ export default function Body(props) {
         );
     });
 
-    console.log("body render");
-    console.log(parsedData);
-    console.log(cardEl);
+    // console.log("body render");
+    // console.log(parsedData);
+    // console.log(cardEl);
 
     function handleAdd() {
         console.log(JSON.parse(localStorage.getItem("detailData"))[0]);
@@ -38,7 +38,7 @@ export default function Body(props) {
             {cardEl.length > 0 ? (
                 <div className="card-container">{cardEl}</div>
             ) : (
-                <EmptyIcon />
+                <EmptyIcon fetchErr={props.fetchErr} />
             )}
         </div>
     );

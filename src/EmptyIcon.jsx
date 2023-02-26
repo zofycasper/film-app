@@ -1,10 +1,12 @@
 import React from "react";
 
-export default function EmptyIcon() {
+export default function EmptyIcon(props) {
     return (
         <div className="empty-movie-container">
-            <img src="../public/image/movie-icon.png" alt="" />
-            <p>Start exploring</p>
+            {!props.fetchErr && (
+                <img src="../public/image/movie-icon.png" alt="" />
+            )}
+            {props.fetchErr ? <p>{props.fetchErr}</p> : <p>Start exploring</p>}
         </div>
     );
 }
