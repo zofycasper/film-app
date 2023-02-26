@@ -19,7 +19,11 @@ export default function Search(props) {
                 onChange={props.handleChange1}
                 value={props.inputValue}
             />
-            <button onClick={props.handleSearch1} className="search-btn">
+            <button
+                onClick={props.handleSearch1}
+                className="search-btn"
+                disabled={props.isLoading}
+            >
                 Search
             </button>
         </form>

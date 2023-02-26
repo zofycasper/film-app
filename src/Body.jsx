@@ -8,21 +8,27 @@ export default function Body(props) {
 
     let parsedData = props.detailData;
 
-    const cardEl = parsedData.map((item) => {
-        return (
-            <Card
-                key={item.imdbID}
-                handleAdd={handleAdd}
-                img={item.Poster}
-                title={item.Title}
-                year={item.Year}
-                runTime={item.Runtime}
-                rating={item.imdbRating}
-                genre={item.Genre}
-                plot={item.Plot}
-            />
-        );
-    });
+    let cardEl = [];
+
+    if (props.fetchErr) {
+        cardEl = [];
+    } else {
+        cardEl = parsedData.map((item) => {
+            return (
+                <Card
+                    key={item.imdbID}
+                    handleAdd={handleAdd}
+                    img={item.Poster}
+                    title={item.Title}
+                    year={item.Year}
+                    runTime={item.Runtime}
+                    rating={item.imdbRating}
+                    genre={item.Genre}
+                    plot={item.Plot}
+                />
+            );
+        });
+    }
 
     // console.log("body render");
     // console.log(parsedData);

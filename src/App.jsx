@@ -2,7 +2,8 @@ import React from "react";
 import Header from "./Header";
 import Body from "./Body";
 import Search from "./Search";
-import defaultData from "./data.js";
+
+import Loading from "./Loading";
 
 export default function App() {
     // localStorage.clear();
@@ -13,6 +14,9 @@ export default function App() {
 
     function handleSearch1() {
         event.preventDefault();
+
+        setIsLoading(true);
+
         console.log(`${inputValue.split(" ").join("+")}`);
 
         fetch(
@@ -21,6 +25,8 @@ export default function App() {
                 .join("+")}&apikey=6ad4ebf4`
         )
             .then((res) => {
+                setFetchErr("");
+                setIsLoading(false);
                 console.log(res);
                 return res.json();
             })
@@ -59,6 +65,8 @@ export default function App() {
         setInputValue(e.target.value);
     }
 
+    console.log(isLoading);
+
     return (
         <div className="app-container">
             <Header />
@@ -66,11 +74,14 @@ export default function App() {
                 handleSearch1={handleSearch1}
                 handleChange1={handleChange1}
                 inputValue={inputValue}
+                isLoading={isLoading}
             />
-
-            <Body detailData={detailData} fetchErr={fetchErr} />
-
-            {/* // {isLoading ? <Body detailData={detailData} /> : <p>loading...</p>} */}
+            {isLoading ? (
+                <Loading />
+            ) : (
+                <Body detailData={detailData} fetchErr={fetchErr} />
+            )}
+            {/* {isLoading ? <Body detailData={detailData} /> : <Loading />} */}
         </div>
     );
 }
