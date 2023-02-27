@@ -256,7 +256,9 @@ input:focus {
     gap: 20px;
 }
 
-.add-btn {
+.add-btn,
+.add-watch-btn,
+.remove-btn {
     cursor: pointer;
     display: flex;
     gap: 5px;
@@ -285,4 +287,24 @@ input:focus {
 
 .loading {
     margin-top: 15%;
+}
+
+.empty-watchlist-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.empty-watchlist-container > p {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    /* identical to box height, or 158% */
+
+    text-align: center;
+
+    color: #787878;
 }

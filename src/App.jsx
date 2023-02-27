@@ -4,6 +4,7 @@ import Body from "./Body";
 import Search from "./Search";
 
 import Loading from "./Loading";
+import Watchlist from "./Watchlist";
 
 export default function App() {
     // localStorage.clear();
@@ -12,7 +13,6 @@ export default function App() {
     const [isLoading, setIsLoading] = React.useState(false);
     const [fetchErr, setFetchErr] = React.useState("");
     const [isWatchlist, setIsWatchlist] = React.useState(false);
-    const [myWatchlist, setMyWatchlist] = React.useState([]);
 
     function handleSearch1() {
         event.preventDefault();
@@ -76,6 +76,11 @@ export default function App() {
         setInputValue(e.target.value);
     }
 
+    function backToSearch() {
+        console.log("back to search!");
+        setIsWatchlist(false);
+    }
+
     console.log(isWatchlist);
 
     return (
@@ -94,6 +99,11 @@ export default function App() {
             )}
             {isLoading ? (
                 <Loading />
+            ) : isWatchlist ? (
+                <Watchlist
+                    isWatchlist={isWatchlist}
+                    backToSearch={backToSearch}
+                />
             ) : (
                 <Body
                     detailData={detailData}
