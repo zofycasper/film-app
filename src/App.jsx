@@ -11,30 +11,34 @@ export default function App() {
     const [detailData, setDetailData] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(false);
     const [fetchErr, setFetchErr] = React.useState("");
+    const [isWatchlist, setIsWatchlist] = React.useState(false);
 
     function handleSearch1() {
         event.preventDefault();
 
         setIsLoading(true);
 
-        console.log(`${inputValue.split(" ").join("+")}`);
+        console.log(`${inputValue.trim().split(" ").join("+")}`);
 
         fetch(
             `https://www.omdbapi.com/?s=${inputValue
+                .trim()
                 .split(" ")
                 .join("+")}&apikey=6ad4ebf4`
         )
             .then((res) => {
                 setFetchErr("");
-                setIsLoading(false);
+
                 console.log(res);
                 return res.json();
             })
             .then((data) => {
                 if (data.Response === "False") {
                     console.log("No response");
+                    setIsLoading(false);
                     setFetchErr(data.Error);
                     console.log(fetchErr);
+                    return;
                 } else {
                     let result = data.Search;
 
@@ -54,6 +58,7 @@ export default function App() {
                     });
 
                     Promise.all(newDetail).then((data) => {
+                        setIsLoading(false);
                         setDetailData(data);
                         console.log(detailData);
                     });
@@ -61,21 +66,31 @@ export default function App() {
             });
     }
 
+    function handleWatchlist(e) {
+        console.log(e);
+        setIsWatchlist((current) => !current);
+    }
+
     function handleChange1(e) {
         setInputValue(e.target.value);
     }
 
-    console.log(isLoading);
+    console.log(isWatchlist);
 
     return (
         <div className="app-container">
-            <Header />
-            <Search
-                handleSearch1={handleSearch1}
-                handleChange1={handleChange1}
-                inputValue={inputValue}
-                isLoading={isLoading}
+            <Header
+                handleWatchlist={handleWatchlist}
+                isWatchlist={isWatchlist}
             />
+            {!isWatchlist && (
+                <Search
+                    handleSearch1={handleSearch1}
+                    handleChange1={handleChange1}
+                    inputValue={inputValue}
+                    isLoading={isLoading}
+                />
+            )}
             {isLoading ? (
                 <Loading />
             ) : (
