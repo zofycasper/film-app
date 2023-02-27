@@ -16,7 +16,10 @@ export default function Card(props) {
             <div className="second-line">
                 <p className="length">{props.runTime}</p>
                 <p className="category">{props.genre}</p>
-                <button className="add-btn" onClick={props.handleAdd}>
+                <button
+                    className="add-btn"
+                    onClick={() => props.handleAdd(props.id)}
+                >
                     <img src="../public/image/add.png" alt="add-button" />
                     Watchlist
                 </button>

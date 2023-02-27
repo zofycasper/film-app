@@ -5,6 +5,7 @@ import data from "./data";
 
 export default function Body(props) {
     // JSON.parse(localStorage.getItem("detailData"))
+    const [myWatchlist, setMyWatchlist] = React.useState([]);
 
     let parsedData = props.detailData;
 
@@ -12,6 +13,23 @@ export default function Body(props) {
 
     if (props.fetchErr) {
         cardEl = [];
+    } else if (props.isWatchlist) {
+        cardEl = myWatchlist.map((item) => {
+            return (
+                <Card
+                    key={item.imdbID}
+                    handleAdd={handleAdd}
+                    img={item.Poster}
+                    title={item.Title}
+                    year={item.Year}
+                    runTime={item.Runtime}
+                    rating={item.imdbRating}
+                    genre={item.Genre}
+                    plot={item.Plot}
+                    id={item.imdbID}
+                />
+            );
+        });
     } else {
         cardEl = parsedData.map((item) => {
             return (
@@ -25,18 +43,22 @@ export default function Body(props) {
                     rating={item.imdbRating}
                     genre={item.Genre}
                     plot={item.Plot}
+                    id={item.imdbID}
                 />
             );
         });
     }
 
-    // console.log("body render");
-    // console.log(parsedData);
-    // console.log(cardEl);
+    function handleAdd(id) {
+        const addItem = parsedData.filter((item) => {
+            return item.imdbID === id;
+        })[0];
+        console.log(addItem);
 
-    function handleAdd() {
-        console.log(JSON.parse(localStorage.getItem("detailData"))[0]);
+        setMyWatchlist((prevWatchlist) => [addItem, ...prevWatchlist]);
     }
+
+    console.log(myWatchlist);
 
     return (
         <div className="body-container">

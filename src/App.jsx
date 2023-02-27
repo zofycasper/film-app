@@ -12,6 +12,7 @@ export default function App() {
     const [isLoading, setIsLoading] = React.useState(false);
     const [fetchErr, setFetchErr] = React.useState("");
     const [isWatchlist, setIsWatchlist] = React.useState(false);
+    const [myWatchlist, setMyWatchlist] = React.useState([]);
 
     function handleSearch1() {
         event.preventDefault();
@@ -94,7 +95,11 @@ export default function App() {
             {isLoading ? (
                 <Loading />
             ) : (
-                <Body detailData={detailData} fetchErr={fetchErr} />
+                <Body
+                    detailData={detailData}
+                    fetchErr={fetchErr}
+                    isWatchlist={isWatchlist}
+                />
             )}
             {/* {isLoading ? <Body detailData={detailData} /> : <Loading />} */}
         </div>
