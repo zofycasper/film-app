@@ -18,7 +18,7 @@
 .header {
     background: #0e0e0e;
     height: 208px;
-    background-image: url(../public/image/image\ 36.png);
+    background-image: url(/image/background-img.png);
     background-size: cover;
     width: 100%;
     display: flex;

@@ -7,7 +7,7 @@ export default function Search(props) {
             <label htmlFor="input">
                 <img
                     className="search-icon"
-                    src="../public/image/search.svg"
+                    src="/image/search.svg"
                     alt="search-icon"
                 />
             </label>

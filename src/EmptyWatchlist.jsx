@@ -5,7 +5,7 @@ export default function EmptyWatchlist(props) {
         <div className="empty-watchlist-container">
             <p>Your watchlist is looking a little empty...</p>
             <button onClick={props.backToSearch} className="add-watch-btn">
-                <img src="../public/image/add.png" alt="add-btn" />
+                <img src="/image/add.png" alt="add-btn" />
                 Let's add some movies!
             </button>
         </div>

@@ -8,7 +8,7 @@ export default function Card(props) {
                 <h2 className="movie-title">{props.title}</h2>
                 <img
                     className="star-icon"
-                    src="../public/image/star.png"
+                    src="/image/star.png"
                     alt="star-icon"
                 />
                 <p className="rating-score">{props.rating}</p>
@@ -21,10 +21,7 @@ export default function Card(props) {
                         className="remove-btn"
                         onClick={() => props.handleRemove(props.id)}
                     >
-                        <img
-                            src="../public/image/remove.png"
-                            alt="remove-button"
-                        />
+                        <img src="/image/remove.png" alt="remove-button" />
                         Remove
                     </button>
                 ) : (
@@ -32,7 +29,7 @@ export default function Card(props) {
                         className="add-btn"
                         onClick={() => props.handleAdd(props.id)}
                     >
-                        <img src="../public/image/add.png" alt="add-button" />
+                        <img src="/image/add.png" alt="add-button" />
                         Watchlist
                     </button>
                 )}
