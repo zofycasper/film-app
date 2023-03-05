@@ -6,8 +6,8 @@ export default function Loading() {
         <ReactLoading
             type={"spin"}
             color="#ffffff"
-            height={"12%"}
-            width={"12%"}
+            height={"3rem"}
+            width={"3rem"}
             className="loading"
         />
     );
