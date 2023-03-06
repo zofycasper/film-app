@@ -126,6 +126,7 @@ label {
     font-size: 1rem;
     line-height: 1.2rem;
     /* identical to box height, or 143% */
+    border-radius: 0;
 
     color: #a5a5a5;
     padding-left: 0.5em;
