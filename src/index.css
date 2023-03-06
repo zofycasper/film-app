@@ -17,7 +17,7 @@
 
 .header {
     background: #0e0e0e;
-    height: 208px;
+    height: 13rem;
     background-image: url(/image/background-img.png);
     background-size: cover;
     width: 100%;
@@ -27,12 +27,17 @@
 }
 
 .header-container {
-    width: 462px;
+    width: 29rem;
     background: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+/* @media (max-width: 600px) {
+    .header-container {
+        width: auto;
+    }
+} */
 
 .header-title,
 .watchlist {
@@ -43,8 +48,8 @@
     font-family: "Inter";
     font-style: normal;
     font-weight: 800;
-    font-size: 42.7947px;
-    line-height: 24px;
+    font-size: 2.6rem;
+    line-height: 1.5rem;
     /* or 56% */
 
     display: flex;
@@ -60,8 +65,8 @@
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: 1.5rem;
     /* identical to box height, or 143% */
     cursor: pointer;
     text-align: right;
@@ -71,18 +76,19 @@
 
 .search-container {
     position: absolute;
-    top: 189px;
+    top: 11.75rem;
 
-    width: 462px;
-    height: 38px;
+    width: 70%;
+    max-width: 29rem;
+    height: 2.5rem;
 
     display: grid;
-    grid-template-columns: 40px 1fr 120px;
+    grid-template-columns: 2.5rem 1fr 7.5rem;
 
     /* shadow/sm */
 
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 6px;
+    border-radius: 0.5rem;
 }
 
 label {
@@ -94,15 +100,15 @@ label {
     /* shadow/sm */
 
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
-    border-radius: 6px 0px 0px 6px;
-    font-size: 20px;
+    border-radius: 0.5rem 0px 0px 0.5rem;
+    font-size: 1.25rem;
 }
 
 .search-icon {
     background: transparent;
-    height: 20px;
-    width: 20px;
-    font-size: 20px;
+    height: 1.25rem;
+    width: 1.25rem;
+    font-size: 1.25rem;
     color: gray;
 }
 
@@ -117,8 +123,8 @@ label {
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: 1.2rem;
     /* identical to box height, or 143% */
 
     color: #a5a5a5;
@@ -132,16 +138,16 @@ input:focus {
 
 .search-btn {
     border: none;
-    width: 120px;
+    width: auto;
     background: #4b4b4b;
-    border-radius: 0px 6px 6px 0px;
+    border-radius: 0px 0.5rem 0.5rem 0px;
     /* text-sm/leading-5/font-medium */
 
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
     font-size: 1rem;
-    line-height: 38px;
+    line-height: 2.2rem;
     /* identical to box height, or 143% */
 
     color: #ffffff;
@@ -171,8 +177,8 @@ input:focus {
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: 1.2rem;
     /* identical to box height, or 111% */
 
     text-align: center;
@@ -181,15 +187,15 @@ input:focus {
 }
 
 .card-container {
-    padding: 40px 44px 0px 44px;
+    padding: 2.5rem 2.75rem 0px 2.75rem;
     max-width: 600px;
 }
 
 .card {
-    padding: 21px 0;
+    padding: 1.3rem 0;
 
     display: grid;
-    column-gap: 21px;
+    column-gap: 1.3rem;
     grid-template-areas:
         "movieCover firstLine"
         "movieCover secondLine"
@@ -206,19 +212,19 @@ input:focus {
 }
 
 .first-line {
-    padding-top: 1em;
+    padding-top: 0.5em;
     display: flex;
     grid-area: firstLine;
-    gap: 4px;
-    align-items: baseline;
+    gap: 0.3rem;
+    align-items: center;
 }
 
 .movie-title {
     font-family: "Inter";
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: 1.2rem;
     /* identical to box height, or 111% */
 
     text-align: justify;
@@ -227,16 +233,16 @@ input:focus {
 }
 
 .star-icon {
-    width: 15px;
-    height: 15px;
+    width: 1rem;
+    height: 1rem;
 }
 
 .rating-score {
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
     /* identical to box height, or 167% */
 
     color: #ffffff;
@@ -248,12 +254,12 @@ input:focus {
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
     /* identical to box height, or 167% */
     align-items: center;
     color: #ffffff;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .add-btn,
@@ -261,13 +267,13 @@ input:focus {
 .remove-btn {
     cursor: pointer;
     display: flex;
-    gap: 5px;
+    gap: 0.4rem;
     align-items: center;
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 20px;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
     /* identical to box height, or 167% */
     border: none;
     color: #ffffff;
@@ -278,8 +284,8 @@ input:focus {
     font-family: "Inter";
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 20px;
+    font-size: 0.75rem;
+    line-height: 1.25rem;
     /* or 143% */
 
     color: #a5a5a5;
@@ -300,11 +306,24 @@ input:focus {
     font-family: "Inter";
     font-style: normal;
     font-weight: 700;
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 1rem;
+    line-height: 1.5rem;
     /* identical to box height, or 158% */
 
     text-align: center;
 
     color: #787878;
+}
+
+@media (max-width: 600px) {
+    html {
+        font-size: 60%;
+    }
+    .cover {
+        width: 70px;
+        height: 105px;
+    }
+    .card {
+        max-width: 500px;
+    }
 }
